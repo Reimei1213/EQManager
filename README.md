@@ -1,24 +1,17 @@
-# README
+# EQManager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## 概要
 
-* System dependencies
+グループ内の機材を誰がいつ借り、いつ返したのかを管理するWebアプリケーション
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## 開発環境
 
-* How to run the test suite
+OS: macOS Catalina
 
-* Services (job queues, cache servers, search engines, etc.)
+Ruby: v2.7.0
 
-* Deployment instructions
-
-* ...
+Rails: v6.0.3.4
