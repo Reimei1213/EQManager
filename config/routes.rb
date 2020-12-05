@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  get '/' => "home#top"
-  get "account" => "home#account"
-  get "add" => "home#add"
+
+    get '/login' => "sessions#sessions.new"
+    post "/login" => "sessions#create"
+    delete '/logout' => 'sessions#destroy'
+
+    resources :classifications
+    resources :users
+    resources :groups
+
+    get '/' => "home#index"
+    get "account" => "home#account"
+    get "add" => "home#add"
+
 end

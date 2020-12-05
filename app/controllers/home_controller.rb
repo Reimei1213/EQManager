@@ -1,10 +1,15 @@
 class HomeController < ApplicationController
-  def top
-  end
 
-  def account
-  end
+    before_action :logged_in_user, only:[:edit, :update, :destroy]
 
-  def add
-  end
+    def top
+    end
+
+    def account
+    end
+
+    def add
+    end
+
+
 end
