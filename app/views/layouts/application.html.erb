@@ -19,7 +19,20 @@
       </ul>
     </header>
 
-    <%= yield %>
+    <div class="body">
+      <div class="group">
+        <% if logged_in? %>
+          <% GroupUser.where(user_id: current_user.id).each do |gu| %>
+            <%= link_to gu.group.name, "/" %>
+          <% end %>
+        <% end %>
+
+      </div>
+
+      <%= yield %>
+
+    </div>
+
 
     <footer>
 

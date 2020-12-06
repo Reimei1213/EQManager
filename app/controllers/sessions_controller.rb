@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to "/"
     else
-      render 'new'
+      redirect_to "/login"
     end
   end
 end
