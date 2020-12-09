@@ -3,9 +3,9 @@
 one:
   group_user_id: 1
   equip_id: 1
-  return_day: 2020-12-08
+  return_day: 2020-12-09
 
 two:
   group_user_id: 1
   equip_id: 1
-  return_day: 2020-12-08
+  return_day: 2020-12-09
