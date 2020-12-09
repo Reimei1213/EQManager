@@ -2,10 +2,10 @@
 
 one:
   group_user_id: 1
-  equipment_id: 1
-  return_day: 2020-12-02
+  equip_id: 1
+  return_day: 2020-12-08
 
 two:
   group_user_id: 1
-  equipment_id: 1
-  return_day: 2020-12-02
+  equip_id: 1
+  return_day: 2020-12-08

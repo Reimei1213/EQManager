@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @equip.name %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @equip.state %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @equip.group_id %>
+</p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @equip.classification_id %>
+</p>
+
+<%= link_to 'Edit', edit_equip_path(@equip) %> |
+<%= link_to 'Back', equips_path %>

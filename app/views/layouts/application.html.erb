@@ -15,7 +15,7 @@
       <ul>
         <li><a href="/">EQManager</a></li>
         <li><a href="/account">account</a></li>
-        <li><a href="add">add</a></li>
+        <li><a href="/add">add</a></li>
       </ul>
     </header>
 
@@ -23,7 +23,8 @@
       <div class="group">
         <% if logged_in? %>
           <% GroupUser.where(user_id: current_user.id).each do |gu| %>
-            <%= link_to gu.group.name, "/" %>
+            <%#= link_to gu.group.name, "/", params:{:group_id => gu.group.id} %>
+            <%= link_to gu.group.name, "/?group_id=#{gu.group.id}" %>
           <% end %>
         <% end %>
 

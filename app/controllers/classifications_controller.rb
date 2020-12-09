@@ -69,6 +69,6 @@ class ClassificationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def classification_params
-      params.require(:classification).permit(:name)
+      params.require(:classification).permit(:name).merge(group_id: $Group_User[0].group.id)
     end
 end

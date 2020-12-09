@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Group user:</strong>
+  <%= @borrow.group_user_id %>
+</p>
+
+<p>
+  <strong>Equip:</strong>
+  <%= @borrow.equip_id %>
+</p>
+
+<p>
+  <strong>Return day:</strong>
+  <%= @borrow.return_day %>
+</p>
+
+<%= link_to 'Edit', edit_borrow_path(@borrow) %> |
+<%= link_to 'Back', borrows_path %>

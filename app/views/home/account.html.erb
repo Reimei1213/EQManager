@@ -1,4 +1,11 @@
 <h1>account</h1>
 
-<h2><% @user %></h2>
-<h2><% current_user %></h2>
+<!--<h2><%# @user_name %></h2>-->
+<!--<h2><%# @group_name %></h2>-->
+
+<!--<h2><%#= GroupUser.where(user_id: current_user.id).where(group_id: @groupId).group.name %></h2>-->
+
+<h2>Name:  <%= @gu.user.name %></h2>
+<%= link_to 'Edit', edit_user_path(current_user) %>
+<h2>Group:  <%= @gu.group.name %></h2>
+<%= link_to 'グループ作成', "/groups/new" %>

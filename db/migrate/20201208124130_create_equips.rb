@@ -1,6 +1,6 @@
-class CreateEquipment < ActiveRecord::Migration[6.0]
+class CreateEquips < ActiveRecord::Migration[6.0]
   def change
-    create_table :equipment do |t|
+    create_table :equips do |t|
       t.string :name, null: false
       t.boolean :state, null: false, default: false
       t.integer :group_id, null: false
