@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/' => "home#index"
     get "/account" => "home#account"
     get "/add" => "home#add"
+  get "/equip_list" => "home#equip_list"
 
     get "/equipment/new" => "equipment#new"
     get "/equipment" => "equipment#index", as: :equipment_index_path

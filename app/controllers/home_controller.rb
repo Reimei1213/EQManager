@@ -11,8 +11,8 @@ class HomeController < ApplicationController
         if logged_in?
             $Group_User = GroupUser.where(user_id: current_user.id).where(group_id: $groupId)
         end
-        # logger.debug("################################")
-        # logger.debug(param)
+        logger.debug("################################")
+        logger.debug($Group_User)
     end
 
     def account
@@ -34,5 +34,11 @@ class HomeController < ApplicationController
         end
     end
 
+    def equip_list
+        @gu = $Group_User[0]
+        # logger.debug("######################################")
+        # logger.debug($groupId)
+        @equip = Equip.where(group_id: $groupId)
+    end
 
 end

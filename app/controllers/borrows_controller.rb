@@ -69,6 +69,7 @@ class BorrowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def borrow_params
-      params.require(:borrow).permit(:equip_id, :return_day).merge(group_user_id: $Group_User[0].group.id)
+      equip = Equip.where(name: :name)
+      params.require(:borrow).permit(:return_day).merge(equip_id: equip[0].id, group_user_id: $Group_User[0].group.id)
     end
 end

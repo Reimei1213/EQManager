@@ -1,0 +1,26 @@
+
+
+<table>
+  <thead>
+  <tr>
+    <th>機材名</th>
+    <th>分類</th>
+    <th>状態</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @equip.each do |equip| %>
+    <tr>
+      <td><%= equip.name %></td>
+      <td><%= equip.classification.name %></td>
+      <% if equip.state %>
+        <td>借りられている</td>
+      <% else %>
+        <td>貸し出し可能</td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
