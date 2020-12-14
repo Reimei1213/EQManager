@@ -24,6 +24,7 @@ class BorrowsController < ApplicationController
   # POST /borrows
   # POST /borrows.json
   def create
+
     @borrow = Borrow.new(borrow_params)
 
     respond_to do |format|
@@ -69,8 +70,18 @@ class BorrowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def borrow_params
-      equip = Equip.where(name: :name)
-      logger.debug(equip)
-      params.require(:borrow).permit(:return_day).merge(equip_id: equip[0].id, group_user_id: $Group_User[0].group.id)
+      equips = Equip.where(name: params[:borrow][:name])
+      logger.debug("########################")
+      logger.debug(equips[0])
+
+      # for equip in equips do
+      #   if !equip.state
+      #     equip.update(state: true)
+      #     params.require(:borrow).permit(:return_day).merge(equip_id: equip.id, group_id: $Group_User[0].group.id, group_user_id: $Group_User[0].id)
+      #     break
+      #   end
+      # end
+
+      params.require(:borrow).permit(:return_day).merge(equip_id: equips[0].id, group_id: $Group_User[0].group.id, group_user_id: $Group_User[0].id)
     end
 end

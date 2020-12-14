@@ -10,28 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_135033) do
+ActiveRecord::Schema.define(version: 2020_12_13_095941) do
 
   create_table "borrows", force: :cascade do |t|
-    t.integer "group_user_id"
-    t.integer "equip_id"
+    t.integer "group_user_id", null: false
+    t.integer "equip_id", null: false
     t.date "return_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "group_id"
   end
 
   create_table "classifications", force: :cascade do |t|
     t.string "name", null: false
     t.integer "group_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "equipment", force: :cascade do |t|
-    t.string "name", null: false
-    t.boolean "state", default: false, null: false
-    t.integer "group_id", null: false
-    t.integer "classification_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
