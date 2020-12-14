@@ -5,24 +5,26 @@
 <% end %>
 
 <!--<p><%#= @param %></p>-->
-<% if @equips then %>
-  <table>
-    <thead>
+
+<table>
+  <thead>
     <tr>
       <th>ユーザー名</th>
       <th>機材名</th>
       <th>借りた日</th>
       <th colspan="3"></th>
     </tr>
-    </thead>
+  </thead>
 
-    <tbody>
-    <% @equips.each do |equip| %>
-      <tr>
-        <td><%= course.name %></td>
-        <td><%= link_to 'Show', courses_show_path(course.id) %></td>
-      </tr>
+  <tbody>
+    <% if @equips then %>
+      <% @equips.each do |equip| %>
+        <tr>
+          <td></td>
+          <td><%= equip.name %></td>
+          <td></td>
+        </tr>
+      <% end %>
     <% end %>
-    </tbody>
-  </table>
-<% end %>
+  </tbody>
+</table>

@@ -1,5 +1,7 @@
 <h1>借りる</h1>
 
+<%= flash[:notice] %>
+
 <%= render 'form', borrow: @borrow %>
 
 <%= link_to 'Back', borrows_path %>

@@ -25,8 +25,18 @@ class BorrowsController < ApplicationController
   # POST /borrows.json
   def create
 
-    @borrow = Borrow.new(borrow_params)
+    # aaa = borrow_params
+    # logger.debug("&&&&&&&&&&&&&&&&&&&&&&&&&&")
+    # logger.debug(aaa)
+    borrowParams = borrow_params
 
+    if !borrowParams
+      flash[:notice] = "現在借りられています"
+      redirect_to ("/borrows/new") and return
+    end
+
+    @borrow = Borrow.new(borrowParams)
+    # @borrow = Borrow.new(aaa)
     respond_to do |format|
       if @borrow.save
         format.html { redirect_to @borrow, notice: 'Borrow was successfully created.' }
@@ -72,16 +82,16 @@ class BorrowsController < ApplicationController
     def borrow_params
       equips = Equip.where(name: params[:borrow][:name])
       logger.debug("########################")
-      logger.debug(equips[0])
+      logger.debug(equips)
+      # params[:borrow].delete("name")
 
-      # for equip in equips do
-      #   if !equip.state
-      #     equip.update(state: true)
-      #     params.require(:borrow).permit(:return_day).merge(equip_id: equip.id, group_id: $Group_User[0].group.id, group_user_id: $Group_User[0].id)
-      #     break
-      #   end
-      # end
-
-      params.require(:borrow).permit(:return_day).merge(equip_id: equips[0].id, group_id: $Group_User[0].group.id, group_user_id: $Group_User[0].id)
+      for equip in equips do
+        if !equip.state
+          equip.update(state: true)
+          return params.require(:borrow).permit().merge(equip_id: equip.id, group_id: $Group_User[0].group.id, group_user_id: $Group_User[0].id)
+        end
+      end
+      # params.require(:borrow).permit(:return_day).merge(equip_id: equips[0].id, group_id: $Group_User[0].group.id, group_user_id: $Group_User[0].id)
+      return nil
     end
 end
