@@ -17,12 +17,12 @@
   </thead>
 
   <tbody>
-    <% if @equips then %>
-      <% @equips.each do |equip| %>
+    <% if @borrow then %>
+      <% @borrow.each do |borrow| %>
         <tr>
-          <td></td>
-          <td><%= equip.name %></td>
-          <td></td>
+          <td><%= borrow.group_user.user.name %></td>
+          <td><%= borrow.equip.name %></td>
+          <td><%= borrow.created_at.to_s(:datetime_jp) %></td>
         </tr>
       <% end %>
     <% end %>

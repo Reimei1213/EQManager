@@ -11,12 +11,27 @@ class HomeController < ApplicationController
         if logged_in?
             $Group_User = GroupUser.where(user_id: current_user.id).where(group_id: $groupId)
         end
-        logger.debug("################################")
-        # logger.debug($Group_User[0].group.id)
-        logger.debug($groupId)
+        # logger.debug("################################")
+        # # logger.debug($Group_User[0].group.id)
+        # logger.debug($groupId)
+        group_borrows = Borrow.where(group_id: $groupId)
+
+        @borrow = []
+        for group_borrow in group_borrows do
+            if !group_borrow.return_day
+                @borrow.push(group_borrow)
+            end
+            #
+            # logger.debug(group_borrow.equip.state)
+            # x = group_borrow.equip.where(state: true)
+            # @borrow.push(x[0])
+            # logger.debug("$$$$$$$$$$$$$$$$$$$$$$")
+            # logger.debug(x)
+        end
+
         @equips = Equip.where(group_id: $groupId).where(state: true)
         logger.debug("$$$$$$$$$$$$$$$$$$$$$$")
-        logger.debug(@equips)
+        logger.debug(@borrow)
 
     end
 
