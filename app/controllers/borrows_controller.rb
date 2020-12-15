@@ -39,9 +39,9 @@ class BorrowsController < ApplicationController
     # @borrow = Borrow.new(aaa)
     respond_to do |format|
       if @borrow.save
-        # format.html { redirect_to @borrow, notice: 'Borrow was successfully created.' }
-        # format.json { render :show, status: :created, location: @borrow }
-        redirect_to "/add"
+        format.html { redirect_to @borrow, notice: 'Borrow was successfully created.' }
+        format.json { render :show, status: :created, location: @borrow }
+        # redirect_to "/add"
       else
         format.html { render :new }
         format.json { render json: @borrow.errors, status: :unprocessable_entity }
