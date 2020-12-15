@@ -1,0 +1,33 @@
+<% if logged_in? %>
+  <%#= render 'home/logged_in' %>
+  <h1>貸し出し履歴</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ユーザー名</th>
+      <th>機材名</th>
+      <th>借りた日</th>
+      <th>返した日</th>
+      <th colspan="4"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% if @history then %>
+      <% @history.each do |history| %>
+        <tr>
+          <td><%= history.group_user.user.name %></td>
+          <td><%= history.equip.name %></td>
+          <td><%= history.created_at.to_s(:datetime_jp) %></td>
+          <% if history.return_day %>
+            <td><%= history.return_day.to_s(:datetime_jp) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <%= render 'home/not_logged_in' %>
+<% end %>

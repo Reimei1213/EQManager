@@ -1,0 +1,11 @@
+<%= form_tag({ :controller => 'group_user', :action => 'create' }, { :method => :post}) do %>
+
+  <div class="field">
+    <%= label_tag :グループ名 %>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "参加" %>
+  </div>
+<% end %>

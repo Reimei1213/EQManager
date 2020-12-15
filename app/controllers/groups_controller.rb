@@ -44,8 +44,9 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
+        # format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @group }
+        redirect_to "/account"
       else
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }

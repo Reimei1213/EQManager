@@ -28,8 +28,9 @@ class EquipsController < ApplicationController
 
     respond_to do |format|
       if @equip.save
-        format.html { redirect_to @equip, notice: 'Equip was successfully created.' }
-        format.json { render :show, status: :created, location: @equip }
+        # format.html { redirect_to @equip, notice: 'Equip was successfully created.' }
+        # format.json { render :show, status: :created, location: @equip }
+        redirect_to "/add"
       else
         format.html { render :new }
         format.json { render json: @equip.errors, status: :unprocessable_entity }

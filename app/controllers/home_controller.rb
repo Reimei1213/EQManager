@@ -74,4 +74,16 @@ class HomeController < ApplicationController
             @equip = Equip.where(group_id: $groupId)
         end
     end
+
+    def history
+        if ! logged_in?
+            render ("home/_not_logged_in")
+        elsif ! GroupUser.exists?(user_id: current_user)
+            render("home/group_add")
+        else
+            @history = Borrow.where(group_id: $groupId)
+        end
+
+    end
+
 end
