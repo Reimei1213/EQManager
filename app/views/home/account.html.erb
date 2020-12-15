@@ -9,3 +9,26 @@
 <%= link_to 'Edit', edit_user_path(current_user) %>
 <h2>Group:  <%= @gu.group.name %></h2>
 <%= link_to 'グループ作成', "/groups/new" %>
+
+<table>
+  <thead>
+  <tr>
+    <th>機材名</th>
+    <th>借りた日</th>
+    <th></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% if @borrow then %>
+    <% @borrow.each do |borrow| %>
+      <tr>
+        <td><%= borrow.equip.name %></td>
+        <td><%= borrow.created_at.to_s(:datetime_jp) %></td>
+        <td><%= button_to "返却", {controller: 'home', action: 'account'}, {method: :get, params: {borrow_id: borrow.id}} %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

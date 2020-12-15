@@ -21,17 +21,11 @@ class HomeController < ApplicationController
             if !group_borrow.return_day
                 @borrow.push(group_borrow)
             end
-            #
-            # logger.debug(group_borrow.equip.state)
-            # x = group_borrow.equip.where(state: true)
-            # @borrow.push(x[0])
-            # logger.debug("$$$$$$$$$$$$$$$$$$$$$$")
-            # logger.debug(x)
         end
 
-        @equips = Equip.where(group_id: $groupId).where(state: true)
-        logger.debug("$$$$$$$$$$$$$$$$$$$$$$")
-        logger.debug(@borrow)
+        # @equips = Equip.where(group_id: $groupId).where(state: true)
+        # logger.debug("$$$$$$$$$$$$$$$$$$$$$$")
+        # logger.debug(@borrow)
 
     end
 
@@ -43,6 +37,21 @@ class HomeController < ApplicationController
             render("home/group_add")
         else
             @gu = $Group_User[0]
+            user_borrows = Borrow.where(group_user_id: @gu.id)
+
+            @borrow = []
+            for user_borrow in user_borrows do
+                if !user_borrow.return_day
+                    @borrow.push(user_borrow)
+                end
+            end
+
+            if params[:borrow_id]
+                borrow = Borrow.where(id: params[:borrow_id])
+                borrow[0].equip.update(state: false)
+                borrow.update(return_day: Time.now)
+                redirect_to "/account"
+            end
         end
     end
 

@@ -1,22 +1,16 @@
 <% if logged_in? %>
   <%= render 'home/logged_in' %>
-<% else %>
-  <%= render 'home/not_logged_in' %>
-<% end %>
-
-<!--<p><%#= @param %></p>-->
-
-<table>
-  <thead>
+  <table>
+    <thead>
     <tr>
       <th>ユーザー名</th>
       <th>機材名</th>
       <th>借りた日</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% if @borrow then %>
       <% @borrow.each do |borrow| %>
         <tr>
@@ -26,5 +20,12 @@
         </tr>
       <% end %>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+<% else %>
+  <%= render 'home/not_logged_in' %>
+<% end %>
+
+<!--<p><%#= @param %></p>-->
+
+
