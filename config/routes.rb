@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :groups
   resources :group_user
 
-  get '/' => "home#index"
+  # get '/' => "home#index"
+  root 'home#index'
   get "/account" => "home#account"
   get "/add" => "home#add"
   get "/equip_list" => "home#equip_list"
