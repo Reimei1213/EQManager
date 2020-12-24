@@ -1,3 +1,4 @@
+# https://qiita.com/d0ne1s/items/7c4d2be3f53e34a9dec7
 class SessionsController < ApplicationController
 
   def new
