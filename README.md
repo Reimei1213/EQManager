@@ -6,7 +6,7 @@
 
 グループ内の機材を誰がいつ借り、いつ返したのかを管理するWebアプリケーション
 
-[heroku url](https://github.com/Reimei1213/EQManager)
+[heroku url](https://eqmanager-app.herokuapp.com/)
 
 
 
